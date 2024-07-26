@@ -6,8 +6,7 @@ WORK_DIR="$(dirname $(realpath "${0}"))"
 SOURCE_FILE="${WORK_DIR}/SteamFork/tools.index"
 SCRIPT_PATH="${WORK_DIR}/SteamFork/bin"
 
-if [ ! -e "${SOURCE_FILE}" ] || \
-   [ ! -d "${HOME}/SteamForkTools" ]
+if [ ! -d "${WORK_DIR}/SteamForkTools" ]
 then
 	echo "Cloning repository..."
 	git clone https://github.com/SteamFork/SteamForkTools.git
