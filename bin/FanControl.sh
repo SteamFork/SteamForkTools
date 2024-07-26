@@ -5,3 +5,6 @@ then
 	curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_release.sh | sh
 fi
 curl -L https://github.com/SteamFork/FanControl/raw/main/install.sh | sh
+echo "Disabling built-in fan management."
+systemctl stop steamfork-fancontrol
+systemctl disable steamfork-fancontrol

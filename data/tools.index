@@ -1,3 +1,3 @@
-FanControl|Manual Fan control plugin.
-HueSync|RGB Control Plugin.
+FanControl|Manual Fan control plugin. This option disables built in fan management.
+HueSync|An RGB Control Plugin.
 SimpleDeckyTDP|A CPU/GPU/TDP management utility.
