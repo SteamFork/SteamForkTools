@@ -3,13 +3,14 @@
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
 WORK_DIR="$(dirname $(realpath "${0}"))"
-SOURCE_FILE="${WORK_DIR}/.tools.index"
-SCRIPT_PATH="${WORK_DIR}/bin"
+SOURCE_FILE="${WORK_DIR}/SteamFork/tools.index"
+SCRIPT_PATH="${WORK_DIR}/SteamFork/bin"
 
-if [ ! -e "${SOURCE_FILE}" ]
+if [ ! -e "${SOURCE_FILE}" ] || \
+   [ ! -d "${HOME}/SteamForkTools" ]
 then
-	echo "Fetching source data..."
-	curl -Lo "${SOURCE_FILE}" "https://github.com/SteamFork/SteamForkTools/raw/main/data/tools.index"
+	echo "Cloning repository..."
+	git clone https://github.com/SteamFork/SteamForkTools.git
 fi
 
 declare -a allTools=()
