@@ -3,7 +3,7 @@
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
 WORK_DIR="$(dirname $(realpath "${0}"))"
-SOURCE_FILE="${WORK_DIR}/data/tools.index"
+SOURCE_FILE="${WORK_DIR}/.tools.index"
 SCRIPT_PATH="${WORK_DIR}/bin"
 
 if [ ! -e "${SOURCE_FILE}" ]
