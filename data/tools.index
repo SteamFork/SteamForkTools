@@ -1,6 +1,5 @@
-Decky Plugins|
-FanControl|Manual Fan control plugin. This option disables built in fan management.
-HueSync|An RGB Control Plugin.
-SimpleDeckyTDP|A CPU/GPU/TDP management utility.
-System Configuration|
-Enable SSH|Enables the ssh daemon to start on boot.
+Enable SSH|SSH daemon will start on boot.
+FanControl|Decky plugin for manual fan control.
+HueSync|Decky plugin for RGB control.
+SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
+Waydroid|Android on SteamOS.
