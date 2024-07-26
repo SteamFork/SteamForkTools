@@ -44,3 +44,5 @@ do
 		"${SCRIPT_PATH}/${ITEM}.sh"
 	fi
 done
+
+rm -rf ${WORK_DIR}/SteamForkTools
