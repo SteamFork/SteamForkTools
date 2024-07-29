@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
-WORK_DIR="$(dirname $(realpath "${0}"))"
-SOURCE_FILE="${WORK_DIR}/SteamForkTools/data/tools.index"
-SCRIPT_PATH="${WORK_DIR}/SteamForkTools/bin"
+export WORK_DIR="$(dirname $(realpath "${0}"))"
+export SOURCE_FILE="${WORK_DIR}/SteamForkTools/data/tools.index"
+export SCRIPT_PATH="${WORK_DIR}/SteamForkTools/bin"
 
 if [ ! -d "${WORK_DIR}/SteamForkTools" ]
 then
