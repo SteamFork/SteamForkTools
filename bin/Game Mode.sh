@@ -8,4 +8,4 @@ sudo steamos-readonly disable
 sudo steamfork-enable-sessions
 rm -f /etc/sddm.conf.d/001-rotation.conf
 rm -f /etc/X11/xorg.conf.d/99-touchscreen_orientation.conf
-sudo steamfork-readonly enable
+sudo steamos-readonly enable

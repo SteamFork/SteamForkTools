@@ -6,7 +6,7 @@ source steamfork-devicequirk-set
 
 sudo steamos-readonly disable
 sudo steamfork-disable-sessions
-cat <<EOF >/etc/sddm.conf.d/001-rotation.conf
+cat <<EOF | sudo tee /etc/sddm.conf.d/001-rotation.conf
 [XDisplay]
 DisplayCommand=/etc/X11/Xsession.d/999rotate-screen
 EOF
@@ -26,7 +26,7 @@ case ${X11_ROTATION} in
 		;;
 esac
 
-cat <<EOF >/etc/X11/xorg.conf.d/99-touchscreen_orientation.conf
+cat <<EOF | sudo tee /etc/X11/xorg.conf.d/99-touchscreen_orientation.conf
 Section "InputClass"
 	Identifier "Coordinate Transformation Matrix"
 	MatchIsTouchscreen "on"
@@ -36,4 +36,4 @@ Section "InputClass"
 EndSection
 EOF
 
-sudo steamfork-readonly enable
+sudo steamos-readonly enable

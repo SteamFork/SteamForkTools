@@ -1,8 +1,8 @@
-Decky Loader|SteamDeck homebrew plugin loader.
-Enable SSH|SSH daemon will start on boot.
-FanControl|Decky plugin for manual fan control.
-HueSync|Decky plugin for RGB control.
-SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
-Desktop Mode|Changes the default boot to desktop mode.
-Game Mode|Changes the default boot back to game mode.
-Waydroid|Android on SteamOS.
+0|Decky Loader|SteamDeck homebrew plugin loader.
+0|Enable SSH|SSH daemon will start on boot.
+0|FanControl|Decky plugin for manual fan control.
+0|HueSync|Decky plugin for RGB control.
+0|SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
+20240815|Desktop Mode|Changes the default boot to desktop mode.
+20240815|Game Mode|Changes the default boot back to game mode.
+0|Waydroid|Android on SteamOS.

@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
+source /etc/os-release
 export WORK_DIR="$(dirname $(realpath "${0}"))"
 export SOURCE_FILE="${WORK_DIR}/SteamForkTools/data/tools.index"
 export SCRIPT_PATH="${WORK_DIR}/SteamForkTools/bin"
@@ -15,10 +16,16 @@ fi
 declare -a allTools=()
 while read TOOLS
 do
-	TOOL="${TOOLS%|*}"
-	DESCRIPTION="${TOOLS#*|}"
+	VER="${TOOLS%%|*}"
+	TOOLS="${TOOLS#*|}"
+	TOOL="${TOOLS%%|*}"
+	DESCRIPTION="${TOOLS##*|}"
 	echo "Found tool: "${TOOL}"..."
-	allTools+=("FALSE" "${TOOL}" "${DESCRIPTION}")
+	if (( $(echo "${BUILD_ID}>${VER}" | bc -l ) ))
+	then
+		echo "${TOOL} is supported by this version of SteamFork."
+		allTools+=("FALSE" "${TOOL}" "${DESCRIPTION}")
+	fi
 done < ${SOURCE_FILE}
 
 echo "[${allTools[@]}]"
