@@ -3,4 +3,6 @@ Enable SSH|SSH daemon will start on boot.
 FanControl|Decky plugin for manual fan control.
 HueSync|Decky plugin for RGB control.
 SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
+Desktop Mode|Changes the default boot to desktop mode.
+Game Mode|Changes the default boot back to game mode.
 Waydroid|Android on SteamOS.
