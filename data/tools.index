@@ -6,3 +6,4 @@
 20240815|Desktop Mode|Changes the default boot to desktop mode.
 20240815|Game Mode|Changes the default boot back to game mode.
 0|Waydroid|Android on SteamOS.
+0|Reset Wireplumber|Resolve volume saving and other issues.

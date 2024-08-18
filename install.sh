@@ -30,12 +30,12 @@ done < ${SOURCE_FILE}
 
 echo "[${allTools[@]}]"
 
-HELPERS=$( zenity --title "Software Installation Tool" \
+HELPERS=$( zenity --title "SteamFork Helper" \
 	--list \
 	--checklist \
 	--height=600 \
-	--width=350 \
-	--text="Please choose the components that you would like to install." \
+	--width=400 \
+	--text="Please choose the items that you would like to install or run." \
 	--column="Selection" \
 	--column="Component" \
 	--column="Description" \
