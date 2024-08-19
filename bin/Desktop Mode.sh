@@ -17,7 +17,7 @@ case ${1} in
 		exit 0
 		;;
 	TRUE)
-		if [ "${INSTALLED}" = "TRUE" ]
+		if [ "${ENABLED}" = "TRUE" ]
 		then
 			echo "Already installed."
 			exit 0
@@ -56,7 +56,7 @@ EOF
 			sudo steamos-readonly enable
 			;;
 		FALSE)
-			if [ "${INSTALLED}" = "FALSE" ]
+			if [ "${ENABLED}" = "FALSE" ]
 			then
 				echo "Nothing to do."
 				exit 0
