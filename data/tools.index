@@ -4,5 +4,8 @@
 0|HueSync|Decky plugin for RGB control.
 0|SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
 20240815|Desktop Mode|Set the default boot to desktop mode.
+0|SteamDeck Controller|Set input to this controller.
+0|Xbox Elite Controller|Set input to this controller. (Default)
+0|DualSense Edge Controller|Set input to this controller.
 0|Waydroid|Android on SteamOS.
 0|Reset Wireplumber|Resolve volume saving and other issues.
