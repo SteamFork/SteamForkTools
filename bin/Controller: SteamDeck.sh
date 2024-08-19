@@ -3,7 +3,6 @@
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
 CONTROLLER="deck"
-DEFAULT_CONTROLLER="xbox-elite"
 DEVICE=$(steamfork-device-id)
 QUIRK_PATH="/home/.steamos/offload/customdevicequirks/${DEVICE}/boot.d/"
 if [ ! -f "${QUIRK_PATH}/99-${CONTROLLER}.sh" ]
@@ -39,6 +38,6 @@ EOF
 			exit 0
 		fi
 		sudo rm -f "${QUIRK_PATH}/99-${CONTROLLER}.sh"
-		busctl call org.shadowblip.InputPlumber /org/shadowblip/InputPlumber/CompositeDevice0 org.shadowblip.Input.CompositeDevice SetTargetDevices "as" 1 "${DEFAULT_CONTROLLER}"
+		echo "Reboot your device when possible."
 		;;
 esac

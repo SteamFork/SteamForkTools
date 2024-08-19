@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
-CONTROLLER="ds5-edge"
+CONTROLLER="xb360"
 DEVICE=$(steamfork-device-id)
 QUIRK_PATH="/home/.steamos/offload/customdevicequirks/${DEVICE}/boot.d/"
 if [ ! -f "${QUIRK_PATH}/99-${CONTROLLER}.sh" ]

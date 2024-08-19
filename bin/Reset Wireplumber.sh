@@ -9,6 +9,6 @@ case ${1} in
 		;;
 	TRUE)
 		rm -rf ${HOME}/.local/state/wireplumber
-		sudo reboot
+		echo "Reboot your device when possible."
 		;;
 esac
