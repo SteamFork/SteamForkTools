@@ -29,7 +29,8 @@ case ${1} in
 busctl call org.shadowblip.InputPlumber /org/shadowblip/InputPlumber/CompositeDevice0 org.shadowblip.Input.CompositeDevice SetTargetDevices "as" 1 "${CONTROLLER}"
 EOF
 		sudo chmod 0755 "${QUIRK_PATH}/99-${CONTROLLER}.sh"
-		"${QUIRK_PATH}/99-${CONTROLLER}.sh"
+		sh "${QUIRK_PATH}/99-${CONTROLLER}.sh"
+		echo "Reboot your device when possible."
 		;;
 	FALSE)
 		if [ "${ENABLED}" = "FALSE" ]
@@ -38,6 +39,6 @@ EOF
 			exit 0
 		fi
 		sudo rm -f "${QUIRK_PATH}/99-${CONTROLLER}.sh"
-		echo "Reboot your device when possible."
+		sudo systemctl restart inputplumber
 		;;
 esac
