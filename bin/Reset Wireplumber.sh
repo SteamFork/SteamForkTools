@@ -7,7 +7,7 @@ case ${1} in
 		echo "FALSE"
 		exit 0
 		;;
-	*)
+	TRUE)
 		rm -rf ${HOME}/.local/state/wireplumber
 		sudo reboot
 		;;

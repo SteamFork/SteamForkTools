@@ -14,14 +14,12 @@ case ${1} in
 		echo ${ENABLED}
 		exit 0
 		;;
-	*)
-		if [ "${ENABLED}" = "TRUE" ]
-		then
-			sudo systemctl stop sshd
-			sudo systemctl disable sshd
-		else
-			sudo systemctl enable sshd
-			sudo systemctl start sshd
-		fi
+	FALSE)
+		sudo systemctl stop sshd
+		sudo systemctl disable sshd
+		;;
+	TRUE)
+		sudo systemctl enable sshd
+		sudo systemctl start sshd
 		;;
 esac

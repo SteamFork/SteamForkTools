@@ -16,12 +16,10 @@ case ${1} in
 		echo "${ENABLED}"
 		exit 0
 		;;
-	*)
+	FALSE)
 		sudo steamos-readonly disable
-		if [ "${ENABLED}" = "FALSE" ]
-		then
-			sudo steamfork-disable-sessions
-			cat <<EOF | sudo tee /etc/sddm.conf.d/001-rotation.conf
+		sudo steamfork-disable-sessions
+		cat <<EOF | sudo tee /etc/sddm.conf.d/001-rotation.conf
 [XDisplay]
 DisplayCommand=/etc/X11/Xsession.d/999rotate-screen
 EOF
@@ -41,7 +39,7 @@ EOF
 					;;
 			esac
 
-			cat <<EOF | sudo tee /etc/X11/xorg.conf.d/99-touchscreen_orientation.conf
+		cat <<EOF | sudo tee /etc/X11/xorg.conf.d/99-touchscreen_orientation.conf
 Section "InputClass"
 	Identifier "Coordinate Transformation Matrix"
 	MatchIsTouchscreen "on"
@@ -50,9 +48,11 @@ Section "InputClass"
 	Option "CalibrationMatrix" "${X11_TOUCH}"
 EndSection
 EOF
-
-		else
+		sudo steamos-readonly enable
+			;;
+		TRUE)
 			source steamfork-devicequirk-set
+			sudo steamos-readonly disable
 			sudo steamfork-enable-sessions
 			sudo rm -f /etc/sddm.conf.d/001-rotation.conf 2>/dev/null
 			sudo rm -f /etc/X11/xorg.conf.d/99-touchscreen_orientation.conf 2>/dev/null

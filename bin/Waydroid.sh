@@ -14,17 +14,15 @@ case ${1} in
 		echo "${INSTALLED}"
 		exit 0
 		;;
-	*)
-		if [ "${INSTALLED}" = "FALSE" ]
-		then
-			git clone https://github.com/SteamFork/steamos-waydroid-installer
-			cd steamos-waydroid-installer
-			chmod 0755 installer.sh
-			./installer.sh
-			cd ..
-			rm -rf steamos-waydroid-installer
-		else
-			zenity --info --text="Please uninstall Waydroid using Waydroid Toolbox."
-		fi
+	TRUE)
+		git clone https://github.com/SteamFork/steamos-waydroid-installer
+		cd steamos-waydroid-installer
+		chmod 0755 installer.sh
+		./installer.sh
+		cd ..
+		rm -rf steamos-waydroid-installer
+		;;
+	FALSE)
+		zenity --info --text="Please uninstall Waydroid using Waydroid Toolbox."
 		;;
 esac

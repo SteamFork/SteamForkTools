@@ -29,8 +29,6 @@ do
 	fi
 done < ${SOURCE_FILE}
 
-echo "[${allTools[@]}]"
-
 HELPERS=$( zenity --title "SteamFork Helper" \
 	--list \
 	--checklist \
@@ -49,7 +47,17 @@ do
 	echo "Install: ${ITEM}"
 	if [ -e "${SCRIPT_PATH}/${ITEM}.sh" ]
 	then
-		"${SCRIPT_PATH}/${ITEM}.sh"
+		"${SCRIPT_PATH}/${ITEM}.sh TRUE"
+	fi
+	allTools=$("allTools[@]/${ITEM}")
+done
+
+for ITEM in "${allTools[@]}"
+do
+	echo "Uninstall: ${ITEM}"
+	if [ -e "${SCRIPT_PATH}/${ITEM}.sh" ]
+	then
+		"${SCRIPT_PATH}/${ITEM}.sh FALSE"
 	fi
 done
 
