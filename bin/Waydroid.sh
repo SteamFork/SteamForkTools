@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
-if [ "$(systemctl is-active waydroid-container.service)" = "active" ]
+if [ -f "/usr/lib/systemd/system/waydroid-container.service" ]
 then
 	INSTALLED="TRUE"
 else

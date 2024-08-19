@@ -17,11 +17,11 @@ case ${1} in
 		exit 0
 		;;
 	TRUE)
-                if [ "${INSTALLED}" = "TRUE" ]
+		if [ "${INSTALLED}" = "TRUE" ]
 		then
 			echo "Already installed."
 			exit 0
-                fi
+		fi
 		sudo steamos-readonly disable
 		sudo steamfork-disable-sessions
 		cat <<EOF | sudo tee /etc/sddm.conf.d/001-rotation.conf
@@ -53,7 +53,7 @@ Section "InputClass"
 	Option "CalibrationMatrix" "${X11_TOUCH}"
 EndSection
 EOF
-		sudo steamos-readonly enable
+			sudo steamos-readonly enable
 			;;
 		FALSE)
 			source steamfork-devicequirk-set
@@ -76,7 +76,6 @@ Relogin=true
 # all active sddm-helper sessions on teardown
 DisplayStopCommand=/usr/bin/gamescope-wayland-teardown-workaround
 EOF
-		fi
 		sudo steamos-readonly enable
 		;;
 esac
