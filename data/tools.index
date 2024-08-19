@@ -1,11 +1,15 @@
+--|----|Decky Plugins
 0|Decky Loader|SteamDeck homebrew plugin loader.
-0|Enable SSH|SSH daemon will start on boot.
 0|FanControl|Decky plugin for manual fan control.
 0|HueSync|Decky plugin for RGB control.
 0|SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
-20240815|Desktop Mode|Set the default boot to desktop mode.
-0|SteamDeck Controller|Set input to this controller.
-0|Xbox Elite Controller|Set input to this controller. (Default)
-0|DualSense Edge Controller|Set input to this controller.
+--|----|Controller Selection
+0|Controller: DualSense Edge|Set input to this controller.
+0|Controller: SteamDeck|Set input to this controller.
+0|Controller: Xbox Elite|Set input to this controller. (Default)
+--|----|Applications
 0|Waydroid|Android on SteamOS.
+--|----|Configurations
+20240815|Desktop Mode|Set the default boot to desktop mode.
+0|Enable SSH|SSH daemon will start on boot.
 0|Reset Wireplumber|Resolve volume saving and other issues.
