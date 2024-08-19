@@ -47,7 +47,7 @@ do
 	echo "Install: ${ITEM}"
 	if [ -e "${SCRIPT_PATH}/${ITEM}.sh" ]
 	then
-		"${SCRIPT_PATH}/${ITEM}.sh TRUE"
+		"${SCRIPT_PATH}/${ITEM}.sh" TRUE
 	fi
 	allTools=$("allTools[@]/${ITEM}")
 done
@@ -57,7 +57,7 @@ do
 	echo "Uninstall: ${ITEM}"
 	if [ -e "${SCRIPT_PATH}/${ITEM}.sh" ]
 	then
-		"${SCRIPT_PATH}/${ITEM}.sh FALSE"
+		"${SCRIPT_PATH}/${ITEM}.sh" FALSE
 	fi
 done
 
