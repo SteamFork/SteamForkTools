@@ -38,7 +38,7 @@ EOF
 			echo "Nothing to do."
 			exit 0
 		fi
-		rm -f "${QUIRK_PATH}/99-${CONTROLLER}.sh"
+		sudo rm -f "${QUIRK_PATH}/99-${CONTROLLER}.sh"
 		busctl call org.shadowblip.InputPlumber /org/shadowblip/InputPlumber/CompositeDevice0 org.shadowblip.Input.CompositeDevice SetTargetDevices "as" 1 "${DEFAULT_CONTROLLER}"
 		;;
 esac

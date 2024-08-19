@@ -33,12 +33,18 @@ HELPERS=$( zenity --title "SteamFork Helper" \
 	--list \
 	--checklist \
 	--height=600 \
-	--width=540 \
+	--width=700 \
 	--text="Please choose the items that you would like to install or run." \
 	--column="Selection" \
 	--column="Component" \
 	--column="Description" \
 	"${allTools[@]}")
+
+if [ ! $? = 0 ]
+then
+	echo "Cancelled."
+	exit 0
+fi
 
 declare arrSelected=()
 IFS='|' read -r -a arrSelected <<< ${HELPERS}
