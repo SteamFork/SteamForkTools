@@ -20,7 +20,7 @@ do
 	TOOLS="${TOOLS#*|}"
 	TOOL="${TOOLS%%|*}"
 	DESCRIPTION="${TOOLS##*|}"
-	ACTIVE=$("{SCRIPT_PATH}/${ITEM}.sh" check)
+	ACTIVE=$("${SCRIPT_PATH}/${TOOL}.sh" check)
 	echo "Found tool: "${TOOL}"..."
 	if (( $(echo "${BUILD_ID}>${VER}" | bc -l ) ))
 	then
@@ -34,8 +34,8 @@ echo "[${allTools[@]}]"
 HELPERS=$( zenity --title "SteamFork Helper" \
 	--list \
 	--checklist \
-	--height=640 \
-	--width=480 \
+	--height=600 \
+	--width=540 \
 	--text="Please choose the items that you would like to install or run." \
 	--column="Selection" \
 	--column="Component" \
