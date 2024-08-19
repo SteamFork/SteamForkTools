@@ -4,10 +4,38 @@
 
 if [ ! -f "${HOME}/homebrew/services/PluginLoader" ]
 then
-	${SCRIPT_PATH}/DeckyLoader.sh	
+	        DECKY="FALSE"
+else
+	        DECKY="TRUE"
 fi
 
-curl -L https://github.com/SteamFork/FanControl/raw/main/install.sh | sh
-echo "Disabling built-in fan management."
-systemctl stop steamfork-fancontrol
-systemctl disable steamfork-fancontrol
+if [ ! -f "${HOME}/homebrew/plugins/FanControl/package.json" ]
+then
+	INSTALLED="FALSE"
+else
+	INSTALLED="TRUE"
+fi
+
+case ${1} in
+	check)
+		echo "${INSTALLED}"
+		exit 0
+		;;
+	*)
+		if [ "${INSTALLED}" = "FALSE" ]
+		then
+			if [ "${DECKY}" = "FALSE" ]
+			then
+				${SCRIPT_PATH}/DeckyLoader.sh
+			fi
+			curl -L https://github.com/SteamFork/FanControl/raw/main/install.sh | sh
+			echo "Disabling built-in fan management."
+			sudo systemctl stop steamfork-fancontrol
+			sudo systemctl disable steamfork-fancontrol
+		else
+			sudo systemctl stop plugin_loader.service
+			sudo rm -rf ${HOME}/homebrew/plugins/FanControl
+			sudo systemctl start plugin_loader.service
+		fi
+		;;
+esac
