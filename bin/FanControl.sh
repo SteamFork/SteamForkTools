@@ -37,6 +37,11 @@ case ${1} in
 		sudo systemctl disable steamfork-fancontrol
 		;;
 	FALSE)
+		if [ "${INSTALLED}" = "FALSE" ]
+		then
+			echo "Nothing to do."
+			exit 0
+		fi
 		sudo systemctl stop plugin_loader.service
 		sudo rm -rf ${HOME}/homebrew/plugins/FanControl
 		sudo systemctl start plugin_loader.service

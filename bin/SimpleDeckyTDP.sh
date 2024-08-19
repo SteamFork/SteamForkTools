@@ -34,6 +34,12 @@ case ${1} in
 		curl -L https://github.com/SteamFork/SimpleDeckyTDP/raw/main/install.sh | sh
 		;;
 	FALSE)
+
+		if [ "${INSTALLED}" = "FALSE" ]
+		then
+			echo "Nothing to do."
+			exit 0
+		fi
 		sudo systemctl stop plugin_loader.service
 		sudo rm -rf ${HOME}/homebrew/plugins/SimpleDeckyTDP
 		sudo systemctl start plugin_loader.service

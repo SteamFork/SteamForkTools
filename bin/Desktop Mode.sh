@@ -56,6 +56,11 @@ EOF
 			sudo steamos-readonly enable
 			;;
 		FALSE)
+			if [ "${INSTALLED}" = "FALSE" ]
+			then
+				echo "Nothing to do."
+				exit 0
+			fi
 			source steamfork-devicequirk-set
 			sudo steamos-readonly disable
 			sudo steamfork-enable-sessions

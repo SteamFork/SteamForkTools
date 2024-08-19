@@ -15,13 +15,18 @@ case ${1} in
 		exit 0
 		;;
 	FALSE)
+		if [ "${ENABLED}" = "FALSE" ]
+		then
+			echo "Nothing to do."
+			exit 0
+		fi
 		sudo systemctl stop sshd
 		sudo systemctl disable sshd
 		;;
 	TRUE)
-		if [ "${INSTALLED}" = "TRUE" ]
+		if [ "${ENABLED}" = "TRUE" ]
 		then
-			echo "Already installed."
+			echo "Already enabled."
 			exit 0
 		fi
 		sudo systemctl enable sshd

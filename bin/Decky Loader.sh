@@ -28,6 +28,11 @@ case ${1} in
 		sudo systemctl restart plugin_loader.service
 		;;
 	FALSE)
+		if [ "${INSTALLED}" = "FALSE" ]
+		then
+			echo "Nothing to do."
+			exit 0
+		fi
 		echo "Removing Decky Loader and all plugins."
 		sudo systemctl stop plugin_loader.service
 		sudo rm -rf ${HOME}/homebrew

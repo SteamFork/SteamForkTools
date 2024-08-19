@@ -49,16 +49,22 @@ do
 	then
 		"${SCRIPT_PATH}/${ITEM}.sh" TRUE
 	fi
-	allTools=$("allTools[@]/${ITEM}")
 done
 
-for ITEM in "${allTools[@]}"
+while read TOOLS
 do
-	echo "Uninstall: ${ITEM}"
-	if [ -e "${SCRIPT_PATH}/${ITEM}.sh" ]
+	VER="${TOOLS%%|*}"
+	TOOLS="${TOOLS#*|}"
+	TOOL="${TOOLS%%|*}"
+	DESCRIPTION="${TOOLS##*|}"
+	if [[ ! "${arrSelected[@]}" =~ ${TOOL} ]]
 	then
-		"${SCRIPT_PATH}/${ITEM}.sh" FALSE
+		echo "Uninstall: ${TOOL}"
+		if [ -e "${SCRIPT_PATH}/${TOOL}.sh" ]
+		then
+			"${SCRIPT_PATH}/${TOOL}.sh" FALSE
+		fi
 	fi
-done
+done < ${SOURCE_FILE}
 
 rm -rf ${WORK_DIR}/SteamForkTools

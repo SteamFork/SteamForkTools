@@ -28,6 +28,12 @@ case ${1} in
 		rm -rf steamos-waydroid-installer
 		;;
 	FALSE)
+
+		if [ "${INSTALLED}" = "FALSE" ]
+		then
+			echo "Nothing to do."
+			exit 0
+		fi
 		zenity --info --text="Please uninstall Waydroid using Waydroid Toolbox."
 		;;
 esac
