@@ -22,6 +22,11 @@ case ${1} in
 		exit 0
 		;;
 	TRUE)
+		if [ "${INSTALLED}" = "TRUE" ]
+		then
+			echo "Already installed."
+			exit 0
+		fi
 		if [ "${DECKY}" = "FALSE" ]
 		then
 			${SCRIPT_PATH}/"Decky Loader.sh"

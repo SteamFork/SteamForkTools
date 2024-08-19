@@ -16,7 +16,12 @@ case ${1} in
 		echo "${ENABLED}"
 		exit 0
 		;;
-	FALSE)
+	TRUE)
+                if [ "${INSTALLED}" = "TRUE" ]
+		then
+			echo "Already installed."
+			exit 0
+                fi
 		sudo steamos-readonly disable
 		sudo steamfork-disable-sessions
 		cat <<EOF | sudo tee /etc/sddm.conf.d/001-rotation.conf
@@ -50,7 +55,7 @@ EndSection
 EOF
 		sudo steamos-readonly enable
 			;;
-		TRUE)
+		FALSE)
 			source steamfork-devicequirk-set
 			sudo steamos-readonly disable
 			sudo steamfork-enable-sessions

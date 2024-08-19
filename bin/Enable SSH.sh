@@ -19,6 +19,11 @@ case ${1} in
 		sudo systemctl disable sshd
 		;;
 	TRUE)
+		if [ "${INSTALLED}" = "TRUE" ]
+		then
+			echo "Already installed."
+			exit 0
+		fi
 		sudo systemctl enable sshd
 		sudo systemctl start sshd
 		;;

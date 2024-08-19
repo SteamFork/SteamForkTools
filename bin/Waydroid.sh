@@ -15,6 +15,11 @@ case ${1} in
 		exit 0
 		;;
 	TRUE)
+		if [ "${INSTALLED}" = "TRUE" ]
+		then
+			echo "Already installed."
+			exit 0
+		fi
 		git clone https://github.com/SteamFork/steamos-waydroid-installer
 		cd steamos-waydroid-installer
 		chmod 0755 installer.sh

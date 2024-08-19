@@ -15,6 +15,11 @@ case ${1} in
 		exit 0
 		;;
 	TRUE)
+		if [ "${INSTALLED}" = "TRUE" ]
+		then
+			echo "Already installed."
+			exit 0
+		fi
 		echo "Installing: Decky Loader"
 		curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_release.sh | sh
 		### Fix the decky plugin loader service sighup timeout that's slowing shutdown significantly.

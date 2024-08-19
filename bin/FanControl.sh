@@ -4,9 +4,9 @@
 
 if [ ! -f "${HOME}/homebrew/services/PluginLoader" ]
 then
-	        DECKY="FALSE"
+		DECKY="FALSE"
 else
-	        DECKY="TRUE"
+		DECKY="TRUE"
 fi
 
 if [ ! -f "${HOME}/homebrew/plugins/FanControl/package.json" ]
@@ -22,6 +22,11 @@ case ${1} in
 		exit 0
 		;;
 	TRUE)
+		if [ "${INSTALLED}" = "TRUE" ]
+		then
+			echo "Already installed."
+			exit 0
+		fi
 		if [ "${DECKY}" = "FALSE" ]
 		then
 			${SCRIPT_PATH}/"Decky Loader.sh"
