@@ -9,7 +9,7 @@ case ${1} in
 		;;
 	TRUE)
 		sudo steamos-readonly disable
-		sudo pacman -Syu --no-confirm
+		sudo pacman -Syu --noconfirm
 		sudo steamos-readonly enable
 		echo "Please reboot when possible."
 		;;
