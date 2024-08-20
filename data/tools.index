@@ -9,4 +9,5 @@
 0|Waydroid|Android on SteamOS.
 20240815|Desktop Mode|Set the default boot to desktop mode.
 0|Enable SSH|SSH daemon will start on boot.
+0|System Update|Perform an out of band update from the package repositories.
 0|Reset Wireplumber|Resolve volume saving and other issues.
