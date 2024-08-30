@@ -4,7 +4,7 @@ A simple utility available on the desktop that allows simple installation and co
 ## Screenshot
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/SteamFork/SteamForkTools/main/.images/steamfork_helper_20240819.png"/></td>
+    <td><img src="https://raw.githubusercontent.com/SteamFork/SteamForkTools/main/.images/steamfork_helper_20240830.png"/></td>
   </tr>
 </table>
 
