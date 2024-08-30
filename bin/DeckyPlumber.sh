@@ -9,7 +9,7 @@ else
 		DECKY="TRUE"
 fi
 
-if [ ! -f "${HOME}/homebrew/plugins/SimpleDeckyTDP/package.json" ]
+if [ ! -f "${HOME}/homebrew/plugins/DeckyPlumber/package.json" ]
 then
 	INSTALLED="FALSE"
 else
