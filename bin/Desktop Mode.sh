@@ -67,7 +67,7 @@ EOF
 			sudo rm -f /etc/sddm.conf.d/001-rotation.conf 2>/dev/null
 			sudo rm -f /etc/X11/xorg.conf.d/99-touchscreen_orientation.conf 2>/dev/null
 
-			cat <<EOF | sudo tee /etc/sddm.conf.d/autologin.conf
+			cat <<EOF | sudo tee /etc/sddm.conf.d/steamos.conf
 [General]
 DisplayServer=wayland
 
