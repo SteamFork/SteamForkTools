@@ -31,7 +31,7 @@ case ${1} in
 		then
 			${SCRIPT_PATH}/"Decky Loader.sh"
 		fi
-		curl -L https://github.com/SteamFork/SimpleDeckyTDP/raw/main/install.sh | sh
+		curl -L https://github.com/aarron-lee/SimpleDeckyTDP/raw/main/install.sh | sh
 		;;
 	FALSE)
 
