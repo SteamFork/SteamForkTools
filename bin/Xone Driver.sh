@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
-HAVE_DRIVER=$(pacman -Q xone-dkms)
+HAVE_DRIVER=$(pacman -Q xone-dkms 2>/dev/null)
 
 if [ -z "${HAVE_DRIVER}" ]
 then
