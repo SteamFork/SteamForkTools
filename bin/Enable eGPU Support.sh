@@ -9,7 +9,7 @@ QUIRK_PATH="/home/.steamos/offload/customdevicequirks/${DEVICE_ID}"
 
 if [ -e "${QUIRK_PATH}/hardware_quirks.sh" ]
 then
-	grep 'pci=noaer' ${QUIRK_PATH}/hardware_quirks.sh
+	grep 'pci=noaer' "${QUIRK_PATH}/hardware_quirks.sh" >/dev/null 2>&1
 	if (( $? > 0 ))
 	then
 		INSTALLED="FALSE"
