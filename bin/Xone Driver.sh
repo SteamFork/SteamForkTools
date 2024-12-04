@@ -42,7 +42,9 @@ EOF
 			echo "Nothing to do."
 			exit 0
 		fi
+		sudo steamos-readonly disable
 		sudo pacman -R --noconfirm xone-dkms xone-dongle-firmware
 		sudo rm -f /etc/post-update.d/0010-install-xone-driver.sh
+		sudo steamos-readonly enable
 		;;
 esac
