@@ -34,7 +34,7 @@ case ${1} in
 			sudo mkdir -p "${QUIRK_PATH}"
 		fi
 		cat <<EOF | sudo tee -a ${QUIRK_PATH}/hardware_quirks.sh
-export STEAMFORK_GRUB_ADDITIONAL_CMDLINEOPTIONS="${STEAMFORK_GRUB_ADDITIONAL_CMDLINEOPTIONS} pci=noaer
+export STEAMFORK_GRUB_ADDITIONAL_CMDLINEOPTIONS="\${STEAMFORK_GRUB_ADDITIONAL_CMDLINEOPTIONS} pci=noaer"
 EOF
 		sudo steamos-readonly disable
 		sudo steamfork-grub-update
