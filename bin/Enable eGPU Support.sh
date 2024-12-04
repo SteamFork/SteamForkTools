@@ -29,6 +29,10 @@ case ${1} in
 			echo "Already installed."
 			exit 0
 		fi
+		if [ ! -d "${QUIRK_PATH}" ]
+		then
+			sudo mkdir -p "${QUIRK_PATH}"
+		fi
 		cat <<EOF | sudo tee -a ${QUIRK_PATH}/hardware_quirks.sh
 export STEAMFORK_GRUB_ADDITIONAL_CMDLINEOPTIONS="${STEAMFORK_GRUB_ADDITIONAL_CMDLINEOPTIONS} pci=noaer
 EOF
