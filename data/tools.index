@@ -9,3 +9,4 @@
 0|Enable eGPU Support|(Experimental) Enable AMD based eGPU use.
 0|Xone Driver|(Experimental) Driver for Xbox One and Xbox Series X/S accessories.
 0|Reset Wireplumber|Resolve volume saving and other issues.
+0|Install Nix|Install the nix package manager
