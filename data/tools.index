@@ -5,6 +5,7 @@
 0|DeckyPlumber|Controller switching plugin (Dual Sense enables gyro).
 0|Waydroid|Android on SteamOS.
 20240815|Desktop Mode|Set the default boot to desktop mode.
+0|Set ClearCPUID|Correct issues with Hogwarts Legacy.
 0|Enable SSH|SSH daemon will start on boot.
 0|Enable eGPU Support|(Experimental) Enable AMD based eGPU use.
 0|Xone Driver|(Experimental) Driver for Xbox One and Xbox Series X/S accessories.
