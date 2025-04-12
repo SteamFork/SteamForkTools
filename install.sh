@@ -2,9 +2,19 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
+# Enable debug output if DEBUG=true is passed in the environment
+DEBUG=${DEBUG:-false}
+
+debug() {
+    if [ "${DEBUG}" = "true" ]; then
+        echo "DEBUG: $*"
+    fi
+}
+
 source /etc/os-release
 
 export WORK_DIR="$(dirname $(realpath "${0}"))"
+debug "WORK_DIR is set to ${WORK_DIR}"
 
 if [ -f "${WORK_DIR}/data/tools.index" ] && [ -d "${WORK_DIR}/bin" ]; then
     echo "SETUP: Running from the local repository in ${WORK_DIR}."
@@ -17,21 +27,25 @@ else
     export SCRIPT_PATH="${WORK_DIR}/SteamForkTools/bin"
 fi
 
+debug "SOURCE_FILE is set to ${SOURCE_FILE}"
+debug "SCRIPT_PATH is set to ${SCRIPT_PATH}"
+
 declare -a allTools=()
-while read TOOLS; do
-    VER="${TOOLS%%|*}"
-    TOOLS="${TOOLS#*|}"
-    TOOL="${TOOLS%%|*}"
-    DESCRIPTION="${TOOLS##*|}"
+while IFS='|' read -r RELEASE_VER OS_VER TOOL DESCRIPTION; do
+    debug "Parsing tool entry: RELEASE_VER=${RELEASE_VER}, OS_VER=${OS_VER}, TOOL=${TOOL}, DESCRIPTION=${DESCRIPTION}"
     ACTIVE=$("${SCRIPT_PATH}/${TOOL}.sh" check)
+    debug "ACTIVE status for ${TOOL} is ${ACTIVE}"
+
     echo "TOOLS: Found ${TOOL}."
-    if (( $(echo "${BUILD_ID}>${VER}" | bc -l) )); then
+    if [[ $(vercmp "${VERSION_ID}" "${RELEASE_VER}") -ge 0 && $(vercmp "${STEAMOS_VERSION}" "${OS_VER}") -ge 0 ]]; then
         echo "TOOLS: ${TOOL} is supported by this version of SteamFork."
         allTools+=("${ACTIVE}" "${TOOL}" "${DESCRIPTION}")
     else
         echo "TOOLS: ${TOOL} is not supported by this version of SteamFork."
     fi
 done < "${SOURCE_FILE}"
+
+debug "allTools array contains: ${allTools[@]}"
 
 HELPERS=$(zenity --title "SteamFork Helper" \
     --list \
@@ -49,8 +63,12 @@ if [ ! $? = 0 ]; then
     exit 0
 fi
 
+debug "HELPERS contains ${HELPERS}"
+
 declare arrSelected=()
 IFS='|' read -r -a arrSelected <<< "${HELPERS}"
+debug "arrSelected array contains: ${arrSelected[@]}"
+
 for ITEM in "${arrSelected[@]}"; do
     echo "INSTALL: Installing ${ITEM}..."
     if [ -e "${SCRIPT_PATH}/${ITEM}.sh" ]; then
@@ -62,10 +80,13 @@ for ITEM in "${arrSelected[@]}"; do
 done
 
 while read TOOLS; do
-    VER="${TOOLS%%|*}"
+    RELEASE_VER="${TOOLS%%|*}"
+    TOOLS="${TOOLS#*|}"
+    OS_VER="${TOOLS%%|*}"
     TOOLS="${TOOLS#*|}"
     TOOL="${TOOLS%%|*}"
     DESCRIPTION="${TOOLS##*|}"
+    debug "Checking if ${TOOL} needs to be uninstalled."
     if [[ ! " ${arrSelected[@]} " =~ " ${TOOL} " ]]; then
         echo "UNINSTALL: Uninstalling ${TOOL}..."
         if [ -e "${SCRIPT_PATH}/${TOOL}.sh" ]; then

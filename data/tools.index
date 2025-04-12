@@ -1,12 +1,12 @@
-0|Decky Loader|SteamDeck homebrew plugin loader.
-0|FanControl|Decky plugin for manual fan control.
-0|HueSync|Decky plugin for RGB control.
-0|SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
-0|DeckyPlumber|Controller switching plugin (Dual Sense enables gyro).
-0|Waydroid|Android on SteamOS.
-20250501|Desktop Mode|Set the default boot to desktop mode.
-0|ClearCPUID|Correct issues with Hogwarts Legacy.
-0|Enable SSH|SSH daemon will start on boot.
-0|Enable eGPU Support|(Experimental) Enable AMD based eGPU use.
-0|Xone Driver|(Experimental) Driver for Xbox One and Xbox Series X/S accessories.
-0|Reset Wireplumber|Resolve volume saving and other issues.
+0|3.6|Decky Loader|SteamDeck homebrew plugin loader.
+0|3.6|FanControl|Decky plugin for manual fan control.
+0|3.6|HueSync|Decky plugin for RGB control.
+0|3.6|SimpleDeckyTDP|Decky plugin for CPU/GPU/TDP management.
+0|3.6|DeckyPlumber|Controller switching plugin (Dual Sense enables gyro).
+0|3.6|Waydroid|Android on SteamOS.
+20250412|3.7|Desktop Mode|Set the default boot to desktop mode.
+0|3.6|ClearCPUID|Correct issues with Hogwarts Legacy.
+0|3.6|Enable SSH|SSH daemon will start on boot.
+0|3.6|Enable eGPU Support|(Experimental) Enable AMD based eGPU use.
+0|3.6|Xone Driver|(Experimental) Driver for Xbox One and Xbox Series X/S accessories.
+0|3.6|Reset Wireplumber|Resolve volume saving and other issues.
