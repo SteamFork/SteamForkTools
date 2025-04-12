@@ -22,10 +22,11 @@ case ${1} in
 			echo "Already installed."
 			exit 0
 		fi
-    steamos-session-select plasma-wayland-persistent
+    steamos-session-select plasma-wayland-persistent --no-restart
     echo plasma-wayland-persistent | sudo tee /etc/steamfork-default-session > /dev/null
 		;;
   FALSE)
-    steamos-session-select gamescope
+    steamos-session-select gamescope --no-restart
+    sudo rm -f /etc/steamfork-default-session
     ;;
 esac
