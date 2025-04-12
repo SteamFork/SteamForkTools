@@ -23,26 +23,29 @@ case ${1} in
         ;;
     TRUE)
         if [ "${INSTALLED}" = "TRUE" ]; then
-            echo "FanControl is already installed."
+            echo "FanControl: Already installed, nothing to do."
             exit 0
         fi
         if [ "${DECKY}" = "FALSE" ]; then
+            echo "FanControl: Installing Decky Loader..."
             "${SCRIPT_PATH}/Decky Loader.sh" TRUE
         fi
-        echo "Installing FanControl..."
+        echo "FanControl: Installing..."
         curl -L https://github.com/SteamFork/FanControl/raw/main/install.sh | sh
-        echo "Disabling built-in fan management."
+        echo "FanControl: Disabling built-in fan management."
         sudo systemctl stop steamfork-fancontrol
         sudo systemctl disable steamfork-fancontrol
+        echo "FanControl: Installation completed."
         ;;
     FALSE)
         if [ "${INSTALLED}" = "FALSE" ]; then
-            echo "FanControl is not installed."
+            echo "FanControl: Not installed, nothing to do."
             exit 0
         fi
-        echo "Uninstalling FanControl..."
+        echo "FanControl: Removing..."
         sudo systemctl stop plugin_loader.service
         sudo rm -rf "${HOME}/homebrew/plugins/FanControl"
         sudo systemctl start plugin_loader.service
+        echo "FanControl: Removal completed."
         ;;
 esac
