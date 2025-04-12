@@ -23,23 +23,25 @@ case ${1} in
         ;;
     TRUE)
         if [ "${INSTALLED}" = "TRUE" ]; then
-            echo "SimpleDeckyTDP is already installed."
+            echo "SimpleDeckyTDP: Already installed, nothing to do."
             exit 0
         fi
         if [ "${DECKY}" = "FALSE" ]; then
             "${SCRIPT_PATH}/Decky Loader.sh" TRUE
         fi
-        echo "Installing SimpleDeckyTDP..."
+        echo "SimpleDeckyTDP: Installing..."
         curl -L https://github.com/aarron-lee/SimpleDeckyTDP/raw/main/install.sh | sh
+        echo "SimpleDeckyTDP: Installation completed."
         ;;
     FALSE)
         if [ "${INSTALLED}" = "FALSE" ]; then
-            echo "SimpleDeckyTDP is not installed."
+            echo "SimpleDeckyTDP: Not installed, nothing to do."
             exit 0
         fi
-        echo "Uninstalling SimpleDeckyTDP..."
+        echo "SimpleDeckyTDP: Removing..."
         sudo systemctl stop plugin_loader.service
         sudo rm -rf "${HOME}/homebrew/plugins/SimpleDeckyTDP"
         sudo systemctl start plugin_loader.service
+        echo "SimpleDeckyTDP: Removal completed."
         ;;
 esac

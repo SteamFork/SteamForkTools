@@ -8,7 +8,8 @@ case ${1} in
 		exit 0
 		;;
 	TRUE)
+		echo "Reset Wireplumber: Resetting Wireplumber state..."
 		rm -rf ${HOME}/.local/state/wireplumber
-		echo "Reboot your device when possible."
+		echo "Reset Wireplumber: Reset completed. Please reboot your device when possible."
 		;;
 esac

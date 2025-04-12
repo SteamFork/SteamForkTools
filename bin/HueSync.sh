@@ -23,23 +23,25 @@ case ${1} in
         ;;
     TRUE)
         if [ "${INSTALLED}" = "TRUE" ]; then
-            echo "HueSync is already installed."
+            echo "HueSync: Already installed, nothing to do."
             exit 0
         fi
         if [ "${DECKY}" = "FALSE" ]; then
             "${SCRIPT_PATH}/Decky Loader.sh" TRUE
         fi
-        echo "Installing HueSync..."
+        echo "HueSync: Installing..."
         curl -L https://raw.githubusercontent.com/honjow/huesync/main/install.sh | sh
+        echo "HueSync: Installation completed."
         ;;
     FALSE)
         if [ "${INSTALLED}" = "FALSE" ]; then
-            echo "HueSync is not installed."
+            echo "HueSync: Not installed, nothing to do."
             exit 0
         fi
-        echo "Uninstalling HueSync..."
+        echo "HueSync: Removing..."
         sudo systemctl stop plugin_loader.service
         sudo rm -rf "${HOME}/homebrew/plugins/HueSync"
         sudo systemctl start plugin_loader.service
+        echo "HueSync: Removal completed."
         ;;
 esac

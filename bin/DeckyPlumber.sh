@@ -23,28 +23,30 @@ case ${1} in
         ;;
     TRUE)
         if [ "${INSTALLED}" = "TRUE" ]; then
-            echo "Decky Plumber is already installed."
+            echo "Decky Plumber: Already installed, nothing to do."
             exit 0
         fi
         if [ "${DECKY}" = "FALSE" ]; then
-            echo "Installing Decky Loader..."
+            echo "Decky Plumber: Installing Decky Loader..."
             "${SCRIPT_PATH}/Decky Loader.sh" TRUE
             if [ $? -ne 0 ]; then
-                echo "Failed to install Decky Loader. Exiting."
+                echo "Decky Plumber: Failed to install Decky Loader. Exiting."
                 exit 1
             fi
         fi
-        echo "Installing Decky Plumber..."
+        echo "Decky Plumber: Installing..."
         curl -L https://github.com/aarron-lee/DeckyPlumber/raw/main/install.sh | sh
+        echo "Decky Plumber: Installation completed."
         ;;
     FALSE)
         if [ "${INSTALLED}" = "FALSE" ]; then
-            echo "Decky Plumber is not installed."
+            echo "Decky Plumber: Not installed, nothing to do."
             exit 0
         fi
-        echo "Uninstalling Decky Plumber..."
+        echo "Decky Plumber: Removing..."
         sudo systemctl stop plugin_loader.service
         sudo rm -rf "${HOME}/homebrew/plugins/DeckyPlumber"
         sudo systemctl start plugin_loader.service
+        echo "Decky Plumber: Removal completed."
         ;;
 esac
