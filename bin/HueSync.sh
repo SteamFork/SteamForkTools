@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2024 SteamFork (https://github.com/SteamFork)
 
+SCRIPT_PATH="${SCRIPT_PATH:-$(dirname $(realpath "$0"))}"
+
 if [ ! -f "${HOME}/homebrew/services/PluginLoader" ]
 then
 		DECKY="FALSE"
